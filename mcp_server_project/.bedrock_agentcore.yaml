@@ -1,0 +1,35 @@
+default_agent: mcp_server_agentcore
+agents:
+  mcp_server_agentcore:
+    name: mcp_server_agentcore
+    entrypoint: E:/YT/GitHubRepos/amazon-bedrock-agentcore-labs/mcp_server_project/mcp_server.py
+    platform: linux/arm64
+    container_runtime: none
+    aws:
+      execution_role: arn:aws:iam::357171621133:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-7f3ae149b4
+      execution_role_auto_create: false
+      account: '357171621133'
+      region: us-east-1
+      ecr_repository: 357171621133.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-mcp_server_agentcore
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: MCP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: mcp_server_agentcore-8YhjBi7pXe
+      agent_arn: arn:aws:bedrock-agentcore:us-east-1:357171621133:runtime/mcp_server_agentcore-8YhjBi7pXe
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-mcp_server_agentcore-builder
+      execution_role: arn:aws:iam::357171621133:role/AmazonBedrockAgentCoreSDKCodeBuild-us-east-1-7f3ae149b4
+      source_bucket: bedrock-agentcore-codebuild-sources-357171621133-us-east-1
+    authorizer_configuration:
+      customJWTAuthorizer:
+        allowedClients:
+        - 7l86hek7du1610lv7cuem0j9nh
+        discoveryUrl: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_7XQvYZgBu/.well-known/openid-configuration
+    request_header_configuration: null
+    oauth_configuration: null
