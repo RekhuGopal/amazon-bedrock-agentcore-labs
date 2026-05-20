@@ -1,0 +1,31 @@
+default_agent: strands_openai_getting_started
+agents:
+  strands_openai_getting_started:
+    name: strands_openai_getting_started
+    entrypoint: E:/YT/GitHubRepos/amazon-bedrock-agentcore-labs/agent_hosting/04-strands-with-openai-model/strands_agents_openai.py
+    platform: linux/arm64
+    container_runtime: docker
+    aws:
+      execution_role: arn:aws:iam::357171621133:role/AmazonBedrockAgentCoreSDKRuntime-us-east-1-aeccffb574
+      execution_role_auto_create: false
+      account: '357171621133'
+      region: us-east-1
+      ecr_repository: 357171621133.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-strands_openai_getting_started
+      ecr_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+    bedrock_agentcore:
+      agent_id: null
+      agent_arn: null
+      agent_session_id: null
+    codebuild:
+      project_name: null
+      execution_role: null
+      source_bucket: null
+    authorizer_configuration: null
+    request_header_configuration: null
+    oauth_configuration: null

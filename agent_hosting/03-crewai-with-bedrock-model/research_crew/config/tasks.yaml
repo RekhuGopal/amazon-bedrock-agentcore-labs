@@ -1,0 +1,32 @@
+research_task:
+  description: >
+    Research the topic: {topic}
+
+    Focus only on:
+    1. Definition
+    2. Key trends
+    3. Applications
+    4. Challenges
+    5. Future outlook
+
+    Keep the response concise and structured.
+  expected_output: >
+    A concise research summary with headings and bullet points.
+  agent: researcher
+
+analysis_task:
+  description: >
+    Create a final professional report for {topic}
+    using the research findings.
+
+    Include:
+    - Executive Summary
+    - Key Insights
+    - Applications
+    - Challenges
+    - Conclusion
+  expected_output: >
+    A professional markdown report.
+  agent: analyst
+  context:
+    - research_task
